@@ -1,0 +1,60 @@
+# Aura Core — Claude Code Integration
+
+This project uses [Aura Core](https://github.com/AuralithInc/aura-core) for document compilation, RAG retrieval, and agent memory.
+
+## What is Aura?
+
+Aura compiles any documents (PDFs, DOCX, code, spreadsheets, markdown — 60+ formats) into a single `.aura` knowledge archive that can be queried instantly. It also provides a 3-tier memory system for persistent agent context.
+
+## Available Commands
+
+### `/aura-compile` — Compile documents into a knowledge base
+
+Usage: `/aura-compile <directory> [output_file]`
+
+This compiles all files in the given directory into an `.aura` archive for instant retrieval.
+
+### `/aura-query` — Search a knowledge base
+
+Usage: `/aura-query <aura_file> <question>`
+
+This searches through a compiled `.aura` archive and returns the most relevant passages.
+
+### `/aura-memory` — Manage agent memory
+
+Usage: `/aura-memory <action> [args]`
+
+Actions: `write`, `list`, `usage`, `query`
+
+## Quick Setup
+
+1. Install Aura Core: `pip install aura-core`
+2. Copy the `.claude/commands/` directory into your project
+3. Use `/aura-compile ./docs` to build a knowledge base
+4. Use `/aura-query knowledge.aura "your question"` to search
+
+## How It Works
+
+```
+You: /aura-compile ./docs
+Claude: 🔥 Compiling ./docs → knowledge.aura
+        ✅ 234 documents indexed
+
+You: /aura-query knowledge.aura "how does authentication work?"
+Claude: Based on auth_module.py and architecture.md:
+        The authentication system uses JWT tokens...
+```
+
+## Security
+
+- All processing happens locally. No data leaves your machine.
+- Uses `safetensors` (no pickle) — safe and secure.
+- Apache-2.0 licensed.
+
+## Links
+
+- [Aura Core](https://github.com/AuralithInc/aura-core)
+- [Website](https://aura.auralith.org)
+- [PyPI](https://pypi.org/project/aura-core/)
+
+Made by [Auralith Inc.](https://auralith.org)

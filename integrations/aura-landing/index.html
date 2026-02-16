@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura — The Universal Context Compiler for AI Agent Memory</title>
+
+    <!-- SEO Meta -->
+    <meta name="description"
+        content="Compile any document into AI-ready knowledge bases with built-in agent memory. 60+ file formats, PII masking, 3-tier memory OS. Open source, Apache 2.0.">
+    <meta name="keywords"
+        content="aura, aura core, context compiler, AI agent memory, RAG, retrieval augmented generation, knowledge base, document compiler, LLM, AI tools, PII masking, agent memory OS, OpenClaw, Claude Code, Codex, Gemini CLI, safetensors, LangChain, LlamaIndex, open source AI">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="author" content="Auralith Inc.">
+    <link rel="canonical" href="https://aura.auralith.org">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aura.auralith.org">
+    <meta property="og:title" content="Aura — The Universal Context Compiler for AI Agent Memory">
+    <meta property="og:description"
+        content="Compile any document into AI-ready knowledge bases with built-in agent memory. 60+ formats. One command. Zero friction.">
+    <meta property="og:image" content="https://aura.auralith.org/og-image.png">
+    <meta property="og:site_name" content="Aura by Auralith">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aura — The Universal Context Compiler for AI Agent Memory">
+    <meta name="twitter:description"
+        content="Compile any document into AI-ready knowledge bases with built-in agent memory. Open source, Apache 2.0.">
+    <meta name="twitter:image" content="https://aura.auralith.org/og-image.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Aura Core",
+        "alternateName": "Aura Context Compiler",
+        "description": "The universal context compiler for AI agent memory. Compile any document into AI-ready knowledge bases with built-in 3-tier memory OS.",
+        "url": "https://aura.auralith.org",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Windows, Linux",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "Auralith Inc.", "url": "https://auralith.org" },
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "programmingLanguage": "Python",
+        "softwareVersion": "0.1.0"
+    }
+    </script>
+
+    <!-- FAQ Schema for AEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Aura Core?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Aura Core is an open-source universal context compiler that converts documents (PDFs, DOCX, code, spreadsheets, and 60+ other formats) into AI-ready .aura knowledge bases. It includes a built-in 3-tier memory OS for AI agents."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does Aura Core work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Install with pip install aura-core, then run aura compile ./your_data/ --output knowledge.aura. Aura extracts text from all supported files, applies optional PII masking and quality filtering, and packages everything into a single secure .aura binary."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What file formats does Aura support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Aura supports 60+ file formats including PDF, DOCX, HTML, Markdown, CSV, XLSX, Parquet, JSON, YAML, Python, JavaScript, TypeScript, Java, Go, Rust, C/C++, SQL, and many more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Aura Memory OS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Aura Memory OS is a 3-tier memory system for AI agents with pad (working notes), episodic (session history), and fact (persistent knowledge) tiers. It uses a two-speed write-ahead log for instant writes with background compilation to durable shards."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Aura Core free and open source?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Aura Core is fully open source under the Apache 2.0 license, which allows free commercial and private use with no copyleft restrictions."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="logo.png" alt="Auralith Logo" class="nav-logo-img">
+                <span>Aura</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#features">Features</a>
+                <a href="#memory">Memory</a>
+                <a href="#integrations">Integrations</a>
+                <a href="#quickstart">Quick Start</a>
+                <a href="https://github.com/AuralithInc/aura-core" class="nav-btn" target="_blank">GitHub →</a>
+            </div>
+            <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-glow"></div>
+        <div class="container">
+            <h1 class="hero-title">
+                The Universal<br>
+                <span class="gradient-text">Context Compiler</span>
+            </h1>
+            <p class="hero-subtitle">
+                Compile any document into AI-ready knowledge bases with built-in agent memory.
+                One command. Zero friction.
+            </p>
+            <div class="hero-actions">
+                <a href="#quickstart" class="btn btn-primary">
+                    <span class="btn-icon">⚡</span> Quick Start
+                </a>
+                <a href="https://pypi.org/project/aura-core/" class="btn btn-secondary" target="_blank">
+                    pip install aura-core
+                </a>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-bar">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">Terminal</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span>
+                        <span class="terminal-cmd">pip install aura-core</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span>
+                        <span class="terminal-cmd">aura compile ./my_docs/ --output knowledge.aura --pii-mask</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        <span>🔥 Aura Compiler v0.1.0</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        <span> Scanning files... found 234 supported files</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        <span> PII masking: enabled</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        <span> Compiling: [████████████████████████████] 234/234</span>
+                    </div>
+                    <div class="terminal-line terminal-output terminal-success">
+                        <span> ✅ Compiled 234 files → knowledge.aura (12.4 MB)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-eyebrow">CAPABILITIES</div>
+            <h2 class="section-title">Everything You Need</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3>Universal Ingestion</h3>
+                    <p>60+ file formats. PDFs, DOCX, HTML, Markdown, code in 20+ languages, spreadsheets, emails,
+                        presentations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3>Agent Memory</h3>
+                    <p>3-tier memory OS with instant writes. Pad, episodic, and fact tiers give your agents persistent
+                        context.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h3>Instant RAG</h3>
+                    <p>Query any document by keyword or ID. Native wrappers for LangChain and LlamaIndex. Zero-config
+                        retrieval.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3>PII Masking</h3>
+                    <p>Automatically redact emails, phone numbers, and SSNs before compilation. Privacy by default.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3>Secure by Design</h3>
+                    <p>No pickle. No arbitrary code execution. Uses safetensors + msgpack. Safe to share.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>macOS, Windows, and Linux. Pure Python with zero OS-specific dependencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memory Architecture -->
+    <section class="dual-use" id="memory">
+        <div class="container">
+            <div class="section-eyebrow">ARCHITECTURE</div>
+            <h2 class="section-title">One File. Two Superpowers.</h2>
+            <p class="section-subtitle">The same <code>.aura</code> archive works for RAG retrieval and agent memory.
+            </p>
+            <div class="dual-grid">
+                <div class="dual-card">
+                    <div class="dual-header">
+                        <span class="dual-label rag">RAG</span>
+                        <span class="dual-lang">LangChain / LlamaIndex</span>
+                    </div>
+                    <pre class="code-block"><code><span class="kw">from</span> aura.rag <span class="kw">import</span> AuraRAGLoader
+
+loader = AuraRAGLoader(<span class="str">"knowledge.aura"</span>)
+
+<span class="cmt"># Instant text retrieval</span>
+text = loader.get_text_by_id(<span class="str">"doc_001"</span>)
+
+<span class="cmt"># Framework wrappers</span>
+docs = loader.to_langchain_documents()
+docs = loader.to_llama_index_documents()</code></pre>
+                </div>
+                <div class="dual-card">
+                    <div class="dual-header">
+                        <span class="dual-label training">Memory</span>
+                        <span class="dual-lang">3-Tier Memory OS</span>
+                    </div>
+                    <pre class="code-block"><code><span class="kw">from</span> aura.memory <span class="kw">import</span> AuraMemoryOS
+
+memory = AuraMemoryOS()
+
+<span class="cmt"># Write to memory tiers</span>
+memory.write(<span class="str">"fact"</span>, <span class="str">"User prefers dark mode"</span>)
+memory.write(<span class="str">"episodic"</span>, <span class="str">"Discussed API design"</span>)
+memory.write(<span class="str">"pad"</span>, <span class="str">"TODO: check auth module"</span>)
+
+<span class="cmt"># Search across all memory</span>
+results = memory.query(<span class="str">"user preferences"</span>)</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="integrations" id="integrations">
+        <div class="container">
+            <div class="section-eyebrow">INTEGRATIONS</div>
+            <h2 class="section-title">Works With Your Stack</h2>
+            <p class="section-subtitle">Native integrations for the AI agent platforms you already use.</p>
+            <div class="integrations-grid">
+                <a href="https://github.com/AuralithInc/aura-openclaw" class="integration-card" target="_blank">
+                    <div class="integration-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3>OpenClaw</h3>
+                    <p>Persistent RAG and memory for always-on agents.</p>
+                    <span class="integration-link">View on GitHub →</span>
+                </a>
+                <a href="https://github.com/AuralithInc/aura-claude-code" class="integration-card" target="_blank">
+                    <div class="integration-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3>Claude Code</h3>
+                    <p>Custom /aura commands for context-aware coding.</p>
+                    <span class="integration-link">View on GitHub →</span>
+                </a>
+                <a href="https://github.com/AuralithInc/aura-codex" class="integration-card" target="_blank">
+                    <div class="integration-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3>OpenAI Codex</h3>
+                    <p>Knowledge-backed Codex agents with memory.</p>
+                    <span class="integration-link">View on GitHub →</span>
+                </a>
+                <a href="https://github.com/AuralithInc/aura-gemini-cli" class="integration-card" target="_blank">
+                    <div class="integration-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3>Gemini CLI</h3>
+                    <p>Slash commands and MCP support for Gemini CLI.</p>
+                    <span class="integration-link">View on GitHub →</span>
+                </a>
+            </div>
+            <div class="framework-strip">
+                <span class="framework-label">Also works with:</span>
+                <div class="framework-logos">
+                    <span class="framework-badge">LangChain</span>
+                    <span class="framework-badge">LlamaIndex</span>
+                    <span class="framework-badge">Memory OS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="quickstart" id="quickstart">
+        <div class="container">
+            <div class="section-eyebrow">GET STARTED</div>
+            <h2 class="section-title">Up and Running in 60 Seconds</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Install</h3>
+                        <pre
+                            class="code-block code-sm"><code><span class="terminal-prompt">$</span> pip install aura-core</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Compile</h3>
+                        <pre
+                            class="code-block code-sm"><code><span class="terminal-prompt">$</span> aura compile ./my_data/ --output knowledge.aura --pii-mask</code></pre>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Use</h3>
+                        <pre class="code-block code-sm"><code><span class="kw">from</span> aura.memory <span class="kw">import</span> AuraMemoryOS
+memory = AuraMemoryOS()
+memory.write(<span class="str">"fact"</span>, <span class="str">"User prefers dark mode"</span>)
+results = memory.query(<span class="str">"preferences"</span>)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section class="sysreq" id="sysreq">
+        <div class="container">
+            <div class="section-eyebrow">SPECS</div>
+            <h2 class="section-title">System Requirements</h2>
+            <p class="section-subtitle">Runs on modest hardware. No GPU required.</p>
+            <div class="sysreq-table-wrapper">
+                <table class="sysreq-table">
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>Files</th>
+                            <th>RAM</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Personal docs</td>
+                            <td>50–500</td>
+                            <td>~2 GB</td>
+                            <td>&lt; 1 min</td>
+                        </tr>
+                        <tr>
+                            <td>Team knowledge base</td>
+                            <td>500–5,000</td>
+                            <td>~4 GB</td>
+                            <td>5–15 min</td>
+                        </tr>
+                        <tr>
+                            <td>Enterprise corpus</td>
+                            <td>5,000–50,000</td>
+                            <td>~8 GB</td>
+                            <td>30–60 min</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Ready to Compile Your Context?</h2>
+            <p class="cta-subtitle">Open source. Cross-platform. Zero friction.</p>
+            <div class="cta-actions">
+                <a href="https://github.com/AuralithInc/aura-core" class="btn btn-primary btn-lg" target="_blank">
+                    ⭐ Star on GitHub
+                </a>
+                <a href="https://pypi.org/project/aura-core/" class="btn btn-secondary btn-lg" target="_blank">
+                    pip install aura-core
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo">
+                        <img src="logo.png" alt="Auralith Logo" class="footer-logo-img"> Aura
+                    </span>
+                    <p>The Universal Context Compiler for AI Agent Memory</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="https://github.com/AuralithInc/aura-core" target="_blank">GitHub</a>
+                        <a href="https://pypi.org/project/aura-core/" target="_blank">PyPI</a>
+                        <a href="https://github.com/AuralithInc/aura-core#readme" target="_blank">Documentation</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Integrations</h4>
+                        <a href="https://github.com/AuralithInc/aura-openclaw" target="_blank">OpenClaw</a>
+                        <a href="https://github.com/AuralithInc/aura-claude-code" target="_blank">Claude Code</a>
+                        <a href="https://github.com/AuralithInc/aura-codex" target="_blank">Codex</a>
+                        <a href="https://github.com/AuralithInc/aura-gemini-cli" target="_blank">Gemini CLI</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="https://auralith.org" target="_blank">Auralith</a>
+                        <a href="https://github.com/AuralithInc" target="_blank">GitHub Org</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Auralith Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        /* ═══ Scroll Nav Effect ═══ */
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('nav-scrolled', window.scrollY > 40);
+        }, { passive: true });
+
+        /* ═══ Mobile Toggle ═══ */
+        document.getElementById('mobile-toggle').addEventListener('click', () => {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+
+        /* ═══ Smooth Scroll ═══ */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('nav-links').classList.remove('active');
+            });
+        });
+
+        /* ═══ Scroll Reveal ═══ */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.feature-card, .integration-card, .dual-card, .step').forEach(el => {
+            el.classList.add('reveal');
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+
+</html>

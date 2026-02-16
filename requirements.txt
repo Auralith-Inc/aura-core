@@ -1,0 +1,21 @@
+# Aura-Core Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core (always required)
+numpy>=1.21.0
+msgpack>=1.0.0
+safetensors>=0.3.0
+tqdm>=4.60.0
+
+# Optional: Document Parsing (pip install 'aura-core[docs]')
+# unstructured>=0.10.0
+# pypdf>=3.0.0
+# python-docx>=0.8.11
+
+# Optional: Data Formats (pip install 'aura-core[data]')
+# pandas>=1.3.0
+# openpyxl>=3.0.0
+# pyarrow>=10.0.0
+
+# Optional: Full document support including OCR
+# pip install 'aura-core[all]'

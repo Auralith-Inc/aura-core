@@ -1,0 +1,93 @@
+{
+    "name": "aura-knowledge-compiler",
+    "version": "0.1.0",
+    "description": "Compile documents into AI-ready knowledge bases with agent memory using Aura Core",
+    "author": "Auralith Inc.",
+    "homepage": "https://github.com/AuralithInc/aura-codex",
+    "license": "Apache-2.0",
+    "requirements": {
+        "python": ">=3.8",
+        "packages": [
+            "aura-core"
+        ]
+    },
+    "commands": {
+        "compile": {
+            "description": "Compile a directory of files into an .aura knowledge base",
+            "usage": "compile <input_directory> [output_file]",
+            "script": "scripts/aura_codex.py",
+            "args": [
+                "compile"
+            ]
+        },
+        "query": {
+            "description": "Search through a compiled .aura knowledge base",
+            "usage": "query <aura_file> <search_query>",
+            "script": "scripts/aura_codex.py",
+            "args": [
+                "query"
+            ]
+        },
+        "info": {
+            "description": "Show information about an .aura archive",
+            "usage": "info <aura_file>",
+            "script": "scripts/aura_codex.py",
+            "args": [
+                "info"
+            ]
+        },
+        "memory": {
+            "description": "Manage agent memory (write, list, query, usage, prune)",
+            "usage": "memory <action> [args]",
+            "script": "scripts/aura_codex.py",
+            "args": [
+                "memory"
+            ]
+        }
+    },
+    "supported_formats": [
+        "pdf",
+        "docx",
+        "doc",
+        "txt",
+        "md",
+        "rst",
+        "html",
+        "htm",
+        "csv",
+        "tsv",
+        "xlsx",
+        "xls",
+        "parquet",
+        "json",
+        "jsonl",
+        "yaml",
+        "yml",
+        "py",
+        "js",
+        "ts",
+        "jsx",
+        "tsx",
+        "java",
+        "go",
+        "rs",
+        "c",
+        "cpp",
+        "rb",
+        "sql",
+        "sh",
+        "bash",
+        "ps1",
+        "bat",
+        "xml",
+        "toml",
+        "ini",
+        "cfg"
+    ],
+    "security": {
+        "network_access": false,
+        "file_system_access": "read_write_local",
+        "serialization": "safetensors_only",
+        "notes": "No pickle. No external network calls. All processing is local."
+    }
+}

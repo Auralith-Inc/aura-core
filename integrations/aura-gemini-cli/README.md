@@ -1,6 +1,6 @@
 # 🔥 Aura for Gemini CLI
 
-**Give your Gemini CLI agent a persistent knowledge base and memory compiled from any documents.**
+**Give your Gemini CLI agent a persistent knowledge base and 3-tier memory compiled from any documents.**
 
 <p align="center">
   <a href="https://pypi.org/project/auralith-aura/"><img src="https://badge.fury.io/py/auralith-aura.svg" alt="PyPI"></a>
@@ -13,9 +13,9 @@ This extension gives your Gemini CLI agent the ability to:
 
 1. **Compile** any folder of documents (PDFs, DOCX, code, spreadsheets, markdown — 60+ formats) into a `.aura` knowledge base
 2. **Query** that knowledge base instantly with natural language
-3. **Remember** context across sessions with the Memory OS
+3. **Remember** context across sessions with the 3-tier Memory OS (pad, episodic, fact)
 
-All processing happens **locally on your machine**. No data leaves your device.
+All processing happens **locally on your machine**. No data leaves your device. No GPU required.
 
 ## Setup
 
@@ -62,16 +62,16 @@ Copy the `.toml` files from this repo's `commands/` directory into `~/.gemini/co
 ```
 You: /aura-compile ./docs
 Gemini: 🔥 Compiling ./docs → knowledge.aura
-        ✅ 234 documents compiled (12.4 MB)
+        ✅ Knowledge base compiled — documents indexed
 ```
 
 ### Query Documents
 
 ```
 You: /aura-query knowledge.aura "how does authentication work"
-Gemini: Found 3 relevant documents:
-        📄 auth_module.py (relevance: 8)
-        📄 architecture.md (relevance: 5)
+Gemini: Found relevant documents:
+        📄 auth_module.py
+        📄 architecture.md
 ```
 
 ### Use Context for Coding
@@ -99,19 +99,23 @@ text = loader.get_text_by_id("auth_module")
 docs = loader.to_langchain_documents()
 ```
 
-## System Requirements
+## Runs Locally
 
-| Files | RAM | Time |
-|-------|-----|------|
-| 50–500 | ~2 GB | < 1 min |
-| 500–5,000 | ~4 GB | 5–15 min |
+- **No GPU required** — runs on any modern laptop or desktop (CPU-only)
+- **Fully offline** — zero internet required after install
+- **Cross-platform** — macOS, Windows, Linux, Python 3.8+
 
-**Platforms**: macOS, Windows, Linux
+Your documents never leave your hardware.
+
+## Scale Up with OMNI
+
+Need enterprise-scale training pipelines, model fine-tuning, or production agent infrastructure? Check out [**OMNI**](https://omni.auralith.org).
 
 ## Links
 
 - [Aura Core](https://github.com/Auralith-Inc/aura-core) — The compiler
 - [Website](https://aura.auralith.org) — Documentation
+- [OMNI Platform](https://omni.auralith.org) — Enterprise scale
 - [PyPI](https://pypi.org/project/auralith-aura/) — Install
 
 ---

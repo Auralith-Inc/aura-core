@@ -4,7 +4,7 @@ This project uses [Aura Core](https://github.com/Auralith-Inc/aura-core) for doc
 
 ## What is Aura?
 
-Aura compiles any documents (PDFs, DOCX, code, spreadsheets, markdown — 60+ formats) into a single `.aura` knowledge archive that can be queried instantly. It also provides a 3-tier memory system for persistent agent context.
+Aura compiles any documents (PDFs, DOCX, code, spreadsheets, markdown — 60+ formats) into a single `.aura` knowledge archive that can be queried instantly. It also provides a 3-tier memory system (pad, episodic, fact) for persistent agent context across sessions.
 
 ## Available Commands
 
@@ -26,6 +26,11 @@ Usage: `/aura-memory <action> [args]`
 
 Actions: `write`, `list`, `usage`, `query`
 
+**Memory tiers:**
+- **`/pad`** — Working notes, scratch space (transient)
+- **`/episodic`** — Session transcripts, conversation history (auto-archived)
+- **`/fact`** — Verified facts, user preferences (persistent)
+
 ## Quick Setup
 
 1. Install Aura Core: `pip install auralith-aura`
@@ -38,23 +43,29 @@ Actions: `write`, `list`, `usage`, `query`
 ```
 You: /aura-compile ./docs
 Claude: 🔥 Compiling ./docs → knowledge.aura
-        ✅ 234 documents indexed
+        ✅ Knowledge base created — documents indexed
 
 You: /aura-query knowledge.aura "how does authentication work?"
 Claude: Based on auth_module.py and architecture.md:
         The authentication system uses JWT tokens...
 ```
 
-## Security
+## Security & Privacy
 
-- All processing happens locally. No data leaves your machine.
+- All processing happens **locally**. No data leaves your machine.
 - Uses `safetensors` (no pickle) — safe and secure.
+- No GPU required. Fully offline after install.
 - Apache-2.0 licensed.
+
+## Scale Up with OMNI
+
+Need enterprise-scale training pipelines or production agent infrastructure? Check out [**OMNI**](https://omni.auralith.org).
 
 ## Links
 
 - [Aura Core](https://github.com/Auralith-Inc/aura-core)
 - [Website](https://aura.auralith.org)
+- [OMNI Platform](https://omni.auralith.org)
 - [PyPI](https://pypi.org/project/auralith-aura/)
 
 Made by [Auralith Inc.](https://auralith.org)

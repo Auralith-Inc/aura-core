@@ -284,16 +284,29 @@ Footer:
 
 ---
 
-## 💻 System Requirements
+## 💻 Runs Locally
 
-| Use Case | Files | RAM | Time |
-|----------|-------|-----|------|
-| Personal docs | 50–500 | ~2 GB | < 1 min |
-| Team knowledge base | 500–5,000 | ~4 GB | 5–15 min |
-| Enterprise corpus | 5,000–50,000 | ~8 GB | 30–60 min |
+Aura compiles entirely on your local machine — no cloud uploads, no external APIs, no telemetry.
 
-**Platforms**: macOS, Windows, Linux  
-**Python**: 3.8+
+- **No GPU required** — runs on any modern laptop or desktop (CPU-only)
+- **Fully offline** — zero internet required after install
+- **Cross-platform** — macOS, Windows, Linux
+- **Python 3.8+**
+
+Your documents never leave your hardware.
+
+---
+
+## 🚀 Scale Up with OMNI
+
+Aura handles local compilation. For enterprise-scale training pipelines, model fine-tuning, and production-grade agent infrastructure — there's **OMNI**.
+
+- Cloud-scale data compilation & training pipelines
+- Supervised model fine-tuning with emphasis weighting
+- Production agent memory infrastructure
+- Team collaboration & enterprise compliance
+
+**[Explore OMNI →](https://omni.auralith.org)**
 
 ---
 

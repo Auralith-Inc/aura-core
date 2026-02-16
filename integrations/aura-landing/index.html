@@ -95,6 +95,22 @@
                     "@type": "Answer",
                     "text": "Yes. Aura Core is fully open source under the Apache 2.0 license, which allows free commercial and private use with no copyleft restrictions."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the OMNI Platform?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OMNI is Auralith's enterprise platform that extends Aura with cloud-scale training pipelines, model fine-tuning with emphasis weighting, production agent memory infrastructure, and team collaboration. Visit omni.auralith.org for more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Aura require an internet connection or cloud service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Aura compiles entirely on your local machine with no cloud uploads, external APIs, or telemetry. Your data never leaves your hardware. No GPU is required — it runs on any modern laptop or desktop with Python 3.8+."
+                }
             }
         ]
     }
@@ -172,16 +188,16 @@
                         <span>🔥 Aura Compiler v0.1.0</span>
                     </div>
                     <div class="terminal-line terminal-output">
-                        <span> Scanning files... found 234 supported files</span>
+                        <span> Scanning files... found supported files</span>
                     </div>
                     <div class="terminal-line terminal-output">
                         <span> PII masking: enabled</span>
                     </div>
                     <div class="terminal-line terminal-output">
-                        <span> Compiling: [████████████████████████████] 234/234</span>
+                        <span> Compiling: [████████████████████████████] done</span>
                     </div>
                     <div class="terminal-line terminal-output terminal-success">
-                        <span> ✅ Compiled 234 files → knowledge.aura (12.4 MB)</span>
+                        <span> ✅ Compiled → knowledge.aura</span>
                     </div>
                 </div>
             </div>
@@ -412,43 +428,71 @@ results = memory.query(<span class="str">"preferences"</span>)</code></pre>
         </div>
     </section>
 
-    <!-- System Requirements -->
+    <!-- Runs Locally -->
     <section class="sysreq" id="sysreq">
         <div class="container">
-            <div class="section-eyebrow">SPECS</div>
-            <h2 class="section-title">System Requirements</h2>
-            <p class="section-subtitle">Runs on modest hardware. No GPU required.</p>
-            <div class="sysreq-table-wrapper">
-                <table class="sysreq-table">
-                    <thead>
-                        <tr>
-                            <th>Use Case</th>
-                            <th>Files</th>
-                            <th>RAM</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Personal docs</td>
-                            <td>50–500</td>
-                            <td>~2 GB</td>
-                            <td>&lt; 1 min</td>
-                        </tr>
-                        <tr>
-                            <td>Team knowledge base</td>
-                            <td>500–5,000</td>
-                            <td>~4 GB</td>
-                            <td>5–15 min</td>
-                        </tr>
-                        <tr>
-                            <td>Enterprise corpus</td>
-                            <td>5,000–50,000</td>
-                            <td>~8 GB</td>
-                            <td>30–60 min</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="section-eyebrow">LOCAL-FIRST</div>
+            <h2 class="section-title">Your Data Never Leaves Your Machine</h2>
+            <p class="section-subtitle">Aura compiles entirely on your local hardware — no cloud uploads, no external
+                APIs, no telemetry. Your documents stay yours.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25" />
+                        </svg>
+                    </div>
+                    <h3>No GPU Required</h3>
+                    <p>Runs on any modern laptop or desktop. CPU-only compilation — no expensive hardware needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                    </div>
+                    <h3>Fully Offline</h3>
+                    <p>Zero internet required after install. Compile sensitive documents without any data leaving your
+                        network.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>macOS, Windows, and Linux. Python 3.8+ — runs wherever your team works.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OMNI Platform Funnel -->
+    <section class="omni-funnel" id="omni">
+        <div class="container">
+            <div class="section-eyebrow">SCALE UP</div>
+            <h2 class="section-title">Need More? Meet OMNI</h2>
+            <p class="section-subtitle">Aura handles local compilation. For enterprise-scale training pipelines, model
+                fine-tuning, and production-grade agent infrastructure — there's OMNI.</p>
+            <div class="omni-card">
+                <div class="omni-card-content">
+                    <h3>The OMNI Platform</h3>
+                    <ul class="omni-features">
+                        <li>Cloud-scale data compilation &amp; training pipelines</li>
+                        <li>Supervised model fine-tuning with emphasis weighting</li>
+                        <li>Production agent memory infrastructure</li>
+                        <li>Team collaboration &amp; enterprise compliance</li>
+                    </ul>
+                    <a href="https://omni.auralith.org" class="btn btn-primary" target="_blank">
+                        Explore OMNI →
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -496,7 +540,8 @@ results = memory.query(<span class="str">"preferences"</span>)</code></pre>
                     <div class="footer-col">
                         <h4>Company</h4>
                         <a href="https://auralith.org" target="_blank">Auralith</a>
-                        <a href="https://github.com/AuralithInc" target="_blank">GitHub Org</a>
+                        <a href="https://omni.auralith.org" target="_blank">OMNI Platform</a>
+                        <a href="https://github.com/Auralith-Inc" target="_blank">GitHub Org</a>
                     </div>
                 </div>
             </div>

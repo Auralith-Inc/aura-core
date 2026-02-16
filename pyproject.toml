@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aura-core"
+name = "auralith-aura"
 version = "0.1.0"
 description = "The Universal Context Compiler for AI Agent Memory"
 readme = "README.md"
@@ -46,7 +46,7 @@ data = [
     "pyarrow>=10.0.0",
 ]
 all = [
-    "aura-core[docs,data]",
+    "auralith-aura[docs,data]",
     "unstructured[all-docs]>=0.10.0",
 ]
 dev = ["pytest>=7.0.0", "black>=22.0.0", "isort>=5.10.0"]
@@ -56,10 +56,10 @@ aura = "aura.compiler:main"
 
 [project.urls]
 Homepage = "https://aura.auralith.org"
-Documentation = "https://github.com/AuralithInc/aura-core#readme"
-Repository = "https://github.com/AuralithInc/aura-core.git"
-Issues = "https://github.com/AuralithInc/aura-core/issues"
-Changelog = "https://github.com/AuralithInc/aura-core/releases"
+Documentation = "https://github.com/Auralith-Inc/aura-core#readme"
+Repository = "https://github.com/Auralith-Inc/aura-core.git"
+Issues = "https://github.com/Auralith-Inc/aura-core/issues"
+Changelog = "https://github.com/Auralith-Inc/aura-core/releases"
 
 [tool.setuptools.packages.find]
 where = ["."]

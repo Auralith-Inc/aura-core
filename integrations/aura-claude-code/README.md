@@ -1,6 +1,6 @@
 # Aura Core — Claude Code Integration
 
-This project uses [Aura Core](https://github.com/AuralithInc/aura-core) for document compilation, RAG retrieval, and agent memory.
+This project uses [Aura Core](https://github.com/Auralith-Inc/aura-core) for document compilation, RAG retrieval, and agent memory.
 
 ## What is Aura?
 
@@ -28,7 +28,7 @@ Actions: `write`, `list`, `usage`, `query`
 
 ## Quick Setup
 
-1. Install Aura Core: `pip install aura-core`
+1. Install Aura Core: `pip install auralith-aura`
 2. Copy the `.claude/commands/` directory into your project
 3. Use `/aura-compile ./docs` to build a knowledge base
 4. Use `/aura-query knowledge.aura "your question"` to search
@@ -53,8 +53,8 @@ Claude: Based on auth_module.py and architecture.md:
 
 ## Links
 
-- [Aura Core](https://github.com/AuralithInc/aura-core)
+- [Aura Core](https://github.com/Auralith-Inc/aura-core)
 - [Website](https://aura.auralith.org)
-- [PyPI](https://pypi.org/project/aura-core/)
+- [PyPI](https://pypi.org/project/auralith-aura/)
 
 Made by [Auralith Inc.](https://auralith.org)

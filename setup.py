@@ -6,14 +6,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="aura-core",
+    name="auralith-aura",
     version="0.1.0",
     description="The Universal Context Compiler for AI Agent Memory",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Auralith Inc.",
     author_email="info@auralith.org",
-    url="https://github.com/AuralithInc/aura-core",
+    url="https://github.com/Auralith-Inc/aura-core",
     packages=find_packages(),
     install_requires=[
         "numpy>=1.21.0",

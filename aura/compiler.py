@@ -1,4 +1,4 @@
-﻿# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: Apache-2.0
 # AURA COMPILER - UNIVERSAL CONTEXT COMPILER
 # Transforms raw files into queryable .aura knowledge bases
 
@@ -819,7 +819,7 @@ Examples:
     )
     
     if args.command == 'compile':
-        print(f"ðŸ”¥ Aura Compiler v0.1.0")
+        print(f"🔥 Aura Compiler v0.1.0")
         print(f"   Input:     {args.input}")
         print(f"   Output:    {args.output}")
         if args.pii_mask:
@@ -841,7 +841,7 @@ Examples:
             )
             
             print()
-            print(f"âœ… Compilation Complete!")
+            print(f"✅ Compilation Complete!")
             print(f"   Processed: {stats.processed_files}/{stats.total_files} files")
             print(f"   Skipped:   {stats.skipped_files} (empty/filtered)")
             print(f"   Failed:    {stats.failed_files}")
@@ -853,7 +853,7 @@ Examples:
             print(f"   Output:    {Path(args.output).absolute()}")
             
         except Exception as e:
-            print(f"âŒ Compilation failed: {e}")
+            print(f"❌ Compilation failed: {e}")
             sys.exit(1)
     
     elif args.command == 'info':
@@ -861,7 +861,7 @@ Examples:
         
         try:
             with AuraReader(args.file) as reader:
-                print(f"ðŸ“¦ Aura Archive: {args.file}")
+                print(f"📦 Aura Archive: {args.file}")
                 print(f"   Datapoints: {len(reader)}")
                 
                 if len(reader) > 0:
@@ -873,7 +873,7 @@ Examples:
                     print(f"     Length:  {text_len} chars")
         
         except Exception as e:
-            print(f"âŒ Failed to read file: {e}")
+            print(f"❌ Failed to read file: {e}")
             sys.exit(1)
     
     elif args.command == 'memory':

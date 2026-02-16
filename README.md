@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-  <a href="https://pypi.org/project/aura-core/"><img src="https://badge.fury.io/py/aura-core.svg" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/auralith-aura/"><img src="https://badge.fury.io/py/auralith-aura.svg" alt="PyPI version"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python 3.8+"></a>
-  <a href="https://github.com/AuralithInc/aura-core"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey" alt="Platform"></a>
+  <a href="https://github.com/Auralith-Inc/aura-core"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey" alt="Platform"></a>
 </p>
 
 <p align="center">
@@ -30,7 +30,7 @@ Aura compiles messy, real-world files (PDFs, DOCX, HTML, code, spreadsheets — 
 One command. No JSONL scripting. No parsing pipelines.
 
 ```bash
-pip install aura-core
+pip install auralith-aura
 aura compile ./my_data/ --output knowledge.aura
 ```
 
@@ -41,7 +41,7 @@ aura compile ./my_data/ --output knowledge.aura
 ### 1. Install
 
 ```bash
-pip install aura-core
+pip install auralith-aura
 
 # For full document support (PDFs, DOCX, etc.)
 pip install 'aura-core[all]'
@@ -123,10 +123,10 @@ Aura works natively with the major AI agent platforms:
 
 | Platform | Repo | Use Case |
 |----------|------|----------|
-| **OpenClaw** | [`aura-openclaw`](https://github.com/AuralithInc/aura-openclaw) | Persistent RAG + memory for always-on agents |
-| **Claude Code** | [`aura-claude-code`](https://github.com/AuralithInc/aura-claude-code) | Context-aware coding with `/aura` commands |
-| **OpenAI Codex** | [`aura-codex`](https://github.com/AuralithInc/aura-codex) | Knowledge-backed Codex agents |
-| **Gemini CLI** | [`aura-gemini-cli`](https://github.com/AuralithInc/aura-gemini-cli) | Gemini CLI extension for RAG |
+| **OpenClaw** | [`aura-openclaw`](https://github.com/Auralith-Inc/aura-openclaw) | Persistent RAG + memory for always-on agents |
+| **Claude Code** | [`aura-claude-code`](https://github.com/Auralith-Inc/aura-claude-code) | Context-aware coding with `/aura` commands |
+| **OpenAI Codex** | [`aura-codex`](https://github.com/Auralith-Inc/aura-codex) | Knowledge-backed Codex agents |
+| **Gemini CLI** | [`aura-gemini-cli`](https://github.com/Auralith-Inc/aura-gemini-cli) | Gemini CLI extension for RAG |
 
 ### How It Works (Agent RAG Flow)
 
@@ -306,9 +306,9 @@ Footer:
 ## 🔗 Links
 
 - **Website**: [aura.auralith.org](https://aura.auralith.org)
-- **PyPI**: [pypi.org/project/aura-core](https://pypi.org/project/aura-core)
-- **GitHub**: [github.com/AuralithInc/aura-core](https://github.com/AuralithInc/aura-core)
-- **OpenClaw Skill**: [github.com/AuralithInc/aura-openclaw](https://github.com/AuralithInc/aura-openclaw)
+- **PyPI**: [pypi.org/project/auralith-aura](https://pypi.org/project/auralith-aura)
+- **GitHub**: [github.com/Auralith-Inc/aura-core](https://github.com/Auralith-Inc/aura-core)
+- **OpenClaw Skill**: [github.com/Auralith-Inc/aura-openclaw](https://github.com/Auralith-Inc/aura-openclaw)
 
 ---
 

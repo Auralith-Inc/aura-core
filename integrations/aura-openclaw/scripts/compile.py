@@ -37,7 +37,7 @@ def main():
         print(f"❌ Compilation failed (exit code {e.returncode})")
         sys.exit(e.returncode)
     except FileNotFoundError:
-        print("❌ 'aura' command not found. Install with: pip install aura-core")
+        print("❌ 'aura' command not found. Install with: pip install auralith-aura")
         sys.exit(1)
 
 

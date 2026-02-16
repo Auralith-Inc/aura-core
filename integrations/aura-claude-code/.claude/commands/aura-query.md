@@ -6,7 +6,7 @@ The first argument should be the path to the .aura file.
 All remaining arguments form the search query.
 
 Steps:
-1. Check if aura-core is installed. If not, run `pip install aura-core`.
+1. Check if aura-core is installed. If not, run `pip install auralith-aura`.
 2. Parse arguments: first arg = aura file path, rest = search query.
 3. Use the following Python code to search:
 

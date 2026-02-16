@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "Compile documents into AI-ready knowledge bases with agent memory using Aura Core",
     "author": "Auralith Inc.",
-    "homepage": "https://github.com/AuralithInc/aura-codex",
+    "homepage": "https://github.com/Auralith-Inc/aura-codex",
     "license": "Apache-2.0",
     "requirements": {
         "python": ">=3.8",

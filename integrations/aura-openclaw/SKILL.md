@@ -3,17 +3,17 @@ name: aura-memory-compiler
 description: Compile documents into knowledge bases and manage AI agent memory with Aura Core v2
 version: 2.0.0
 author: Auralith Inc.
-homepage: https://github.com/AuralithInc/aura-core
+homepage: https://github.com/Auralith-Inc/aura-core
 ---
 
 # Aura Memory Compiler
 
-Compile any folder of documents (PDFs, DOCX, code, spreadsheets, markdown — 60+ formats) into an instant, queryable knowledge base and manage persistent AI agent memory using [Aura Core](https://github.com/AuralithInc/aura-core).
+Compile any folder of documents (PDFs, DOCX, code, spreadsheets, markdown — 60+ formats) into an instant, queryable knowledge base and manage persistent AI agent memory using [Aura Core](https://github.com/Auralith-Inc/aura-core).
 
 ## Setup
 
 ```bash
-pip install aura-core
+pip install auralith-aura
 ```
 
 For full document support (PDFs, DOCX, etc.):

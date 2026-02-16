@@ -3,7 +3,7 @@
 **Give your Gemini CLI agent a persistent knowledge base and memory compiled from any documents.**
 
 <p align="center">
-  <a href="https://pypi.org/project/aura-core/"><img src="https://badge.fury.io/py/aura-core.svg" alt="PyPI"></a>
+  <a href="https://pypi.org/project/auralith-aura/"><img src="https://badge.fury.io/py/auralith-aura.svg" alt="PyPI"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
 </p>
 
@@ -22,7 +22,7 @@ All processing happens **locally on your machine**. No data leaves your device.
 ### 1. Install Aura Core
 
 ```bash
-pip install aura-core
+pip install auralith-aura
 ```
 
 ### 2. Configure Gemini CLI
@@ -110,9 +110,9 @@ docs = loader.to_langchain_documents()
 
 ## Links
 
-- [Aura Core](https://github.com/AuralithInc/aura-core) — The compiler
+- [Aura Core](https://github.com/Auralith-Inc/aura-core) — The compiler
 - [Website](https://aura.auralith.org) — Documentation
-- [PyPI](https://pypi.org/project/aura-core/) — Install
+- [PyPI](https://pypi.org/project/auralith-aura/) — Install
 
 ---
 

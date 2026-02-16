@@ -1,6 +1,6 @@
 # Aura Core Context
 
-This project uses **Aura Core** (`pip install aura-core`) for document compilation, RAG retrieval, and agent memory.
+This project uses **Aura Core** (`pip install auralith-aura`) for document compilation, RAG retrieval, and agent memory.
 
 ## What Aura Does
 
@@ -53,4 +53,4 @@ results = memory.query("user preferences")
 - Uses safetensors (not pickle) — safe to load untrusted files.
 - Cross-platform: macOS, Windows, Linux.
 - Apache-2.0 licensed.
-- Documentation: https://github.com/AuralithInc/aura-core
+- Documentation: https://github.com/Auralith-Inc/aura-core

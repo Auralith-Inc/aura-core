@@ -17,7 +17,7 @@ def query_aura_file(aura_file, query):
     try:
         from aura.rag import AuraRAGLoader
     except ImportError:
-        print("❌ aura-core not installed. Run: pip install aura-core")
+        print("❌ aura-core not installed. Run: pip install auralith-aura")
         sys.exit(1)
 
     loader = AuraRAGLoader(aura_file)
@@ -59,7 +59,7 @@ def query_memory(query, namespace=None, top_k=5):
     try:
         from aura.memory import AuraMemoryOS
     except ImportError:
-        print("❌ aura-core not installed. Run: pip install aura-core")
+        print("❌ aura-core not installed. Run: pip install auralith-aura")
         sys.exit(1)
 
     memory = AuraMemoryOS()

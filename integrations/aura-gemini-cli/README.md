@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Auralith-Inc/aura-core/main/logo.png" alt="Aura" width="100">
+</p>
+
 # 🔥 Aura for Gemini CLI
 
 **Give your Gemini CLI agent a persistent knowledge base and 3-tier memory compiled from any documents.**
@@ -15,7 +19,7 @@ This extension gives your Gemini CLI agent the ability to:
 2. **Query** that knowledge base instantly with natural language
 3. **Remember** context across sessions with the 3-tier Memory OS (pad, episodic, fact)
 
-All processing happens **locally on your machine**. No data leaves your device. No GPU required.
+All processing happens **locally on your machine**. No data leaves your device.
 
 ## Setup
 
@@ -101,7 +105,7 @@ docs = loader.to_langchain_documents()
 
 ## Runs Locally
 
-- **No GPU required** — runs on any modern laptop or desktop (CPU-only)
+- **Runs on your local hardware** — any modern laptop or desktop, your setup, your choice
 - **Fully offline** — zero internet required after install
 - **Cross-platform** — macOS, Windows, Linux, Python 3.8+
 

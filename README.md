@@ -288,7 +288,7 @@ Footer:
 
 Aura compiles entirely on your local machine — no cloud uploads, no external APIs, no telemetry.
 
-- **No GPU required** — runs on any modern laptop or desktop (CPU-only)
+- **Runs on your local hardware** — any modern laptop or desktop, your setup, your choice
 - **Fully offline** — zero internet required after install
 - **Cross-platform** — macOS, Windows, Linux
 - **Python 3.8+**

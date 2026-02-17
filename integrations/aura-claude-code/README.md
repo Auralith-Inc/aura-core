@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Auralith-Inc/aura-core/main/logo.png" alt="Aura" width="100">
+</p>
+
 # Aura Core — Claude Code Integration
 
 This project uses [Aura Core](https://github.com/Auralith-Inc/aura-core) for document compilation, RAG retrieval, and agent memory.
@@ -54,7 +58,7 @@ Claude: Based on auth_module.py and architecture.md:
 
 - All processing happens **locally**. No data leaves your machine.
 - Uses `safetensors` (no pickle) — safe and secure.
-- No GPU required. Fully offline after install.
+- Runs on your local hardware. Fully offline after install.
 - Apache-2.0 licensed.
 
 ## Scale Up with OMNI

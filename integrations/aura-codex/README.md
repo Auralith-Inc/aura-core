@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Auralith-Inc/aura-core/main/logo.png" alt="Aura" width="100">
+</p>
+
 # 🔥 Aura for OpenAI Codex
 
 **Give your Codex agent a persistent knowledge base and 3-tier memory compiled from any documents.**
@@ -15,7 +19,7 @@ This skill gives your Codex agent the ability to:
 2. **Query** that knowledge base instantly with natural language
 3. **Remember** facts and context across sessions with the 3-tier Memory OS (pad, episodic, fact)
 
-All processing happens **locally on your machine**. No data leaves your device. No GPU required.
+All processing happens **locally on your machine**. No data leaves your device.
 
 ## Setup
 
@@ -80,7 +84,7 @@ llama_docs = loader.to_llama_index_documents()
 
 ## Runs Locally
 
-- **No GPU required** — runs on any modern laptop or desktop (CPU-only)
+- **Runs on your local hardware** — any modern laptop or desktop, your setup, your choice
 - **Fully offline** — zero internet required after install
 - **Cross-platform** — macOS, Windows, Linux, Python 3.8+
 

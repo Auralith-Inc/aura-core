@@ -31,7 +31,17 @@ pip install auralith-aura
 
 ### 2. Add the Skill
 
-Copy this repo's contents into your Codex skills directory, or reference it directly in your Codex configuration.
+Copy the `SKILL.md` and `scripts/` directory into your Codex skills folder:
+
+```bash
+# User-wide (available in all projects)
+mkdir -p ~/.codex/skills/aura
+cp SKILL.md scripts/ ~/.codex/skills/aura/
+
+# Or project-specific (shared via version control)
+mkdir -p .codex/skills/aura
+cp SKILL.md scripts/ .codex/skills/aura/
+```
 
 ## Usage
 
@@ -53,12 +63,16 @@ Codex: Found relevant documents:
        📄 api_reference.md
 ```
 
-### Use Context for Coding
+### Use Agent Memory
 
 ```
-You: Using the knowledge base, write the refund endpoint
-Codex: Based on payment_flow.md and stripe_integration.py:
-       [generates code with correct patterns from your codebase]
+You: Remember that our production database is on us-east-1
+Codex: ✅ Written to fact tier
+
+--- next session ---
+
+You: Where is our production database?
+Codex: Based on stored memory: Your production database is on us-east-1
 ```
 
 ## How It Works

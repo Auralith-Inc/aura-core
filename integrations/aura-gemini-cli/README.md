@@ -29,9 +29,9 @@ All processing happens **locally on your machine**. No data leaves your device.
 pip install auralith-aura
 ```
 
-### 2. Configure Gemini CLI
+### 2. Configure the MCP Server
 
-Add the Aura MCP server to your Gemini CLI settings at `~/.gemini/settings.json`:
+Add Aura as an MCP server in your Gemini CLI settings (`~/.gemini/settings.json`):
 
 ```json
 {
@@ -45,61 +45,59 @@ Add the Aura MCP server to your Gemini CLI settings at `~/.gemini/settings.json`
 }
 ```
 
-Or use custom slash commands by copying the `commands/` directory:
+This exposes the following tools to your Gemini CLI agent automatically:
 
-```bash
-cp -r commands/* ~/.gemini/commands/
-```
-
-### 3. Add Custom Slash Commands
-
-Copy the `.toml` files from this repo's `commands/` directory into `~/.gemini/commands/`:
-
-- `/aura-compile` — Compile documents into a knowledge base
-- `/aura-query` — Search a knowledge base
-- `/aura-info` — Inspect an archive
+| Tool | Description |
+|------|-------------|
+| `aura_compile` | Compile a directory into a `.aura` knowledge base |
+| `aura_query` | Search a knowledge base for relevant documents |
+| `aura_memory_write` | Write to persistent memory (pad / episodic / fact) |
+| `aura_memory_query` | Search persistent memory |
+| `aura_memory_list` | List all stored memory entries |
+| `aura_info` | Inspect an `.aura` archive (doc count, file types, size) |
 
 ## Usage
+
+Once configured, your Gemini CLI agent can use Aura tools naturally through conversation:
 
 ### Compile a Knowledge Base
 
 ```
-You: /aura-compile ./docs
-Gemini: 🔥 Compiling ./docs → knowledge.aura
-        ✅ Knowledge base compiled — documents indexed
+You: Compile all the docs in ./docs into a knowledge base
+Gemini: [uses aura_compile] ✅ Compiled ./docs → knowledge.aura (47 documents indexed)
 ```
 
 ### Query Documents
 
 ```
-You: /aura-query knowledge.aura "how does authentication work"
-Gemini: Found relevant documents:
-        📄 auth_module.py
-        📄 architecture.md
+You: Search the knowledge base for how authentication works
+Gemini: [uses aura_query] Found relevant documents:
+        📄 auth_module.py (relevance: 4)
+        📄 architecture.md (relevance: 3)
 ```
 
-### Use Context for Coding
+### Persistent Memory
 
 ```
-You: Using the knowledge base, explain the payment flow
-Gemini: Based on payment_flow.md and stripe_integration.py:
-        The system processes payments through...
+You: Remember that our staging API is at api-staging.example.com
+Gemini: [uses aura_memory_write] ✅ Written to fact tier
+
+--- next session ---
+
+You: What's our staging API URL?
+Gemini: [uses aura_memory_query] Based on stored memory: api-staging.example.com
 ```
 
 ## How It Works
 
+The Aura MCP server implements the [Model Context Protocol](https://modelcontextprotocol.io/) over stdio, exposing Aura Core's capabilities as standard MCP tools. Gemini CLI discovers and calls these tools automatically.
+
 ```python
-# Aura compiles documents into a single .aura archive
-aura compile ./docs --output knowledge.aura
-
-# The agent loads it with Python
+# Under the hood, the MCP server uses Aura's Python API:
 from aura.rag import AuraRAGLoader
+
 loader = AuraRAGLoader("knowledge.aura")
-
-# Retrieve any document instantly
 text = loader.get_text_by_id("auth_module")
-
-# Or convert to LangChain/LlamaIndex
 docs = loader.to_langchain_documents()
 ```
 

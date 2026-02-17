@@ -2,7 +2,7 @@
 metadata.clawdbot:
   name: aura-openclaw
   description: Compile documents into knowledge bases and manage persistent AI agent memory with Aura Core
-  version: 0.1.0
+  version: 0.1.1
   author: Auralith Inc.
   homepage: https://github.com/Auralith-Inc/aura-openclaw
 requires:
@@ -169,7 +169,7 @@ This skill makes **zero network requests**. All processing is local.
 
 - **No data leaves your machine.** All compilation and memory operations run locally.
 - The `.aura` format uses `safetensors` (no pickle) — no arbitrary code execution risk.
-- Memory files are stored in your local OpenClaw data directory.
+- Memory files are stored locally at `~/.aura/memory/`.
 - No environment variables or API keys are required.
 - No telemetry, analytics, or usage reporting.
 

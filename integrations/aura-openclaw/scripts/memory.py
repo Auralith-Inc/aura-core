@@ -7,6 +7,12 @@ Provides memory lifecycle commands for AI agents:
   - Prune old/unwanted memories
   - Show storage usage
 
+Security Manifest:
+    Environment Variables: None
+    External Endpoints: None
+    Local Files Read: ~/.aura/memory/ (memory shards)
+    Local Files Written: ~/.aura/memory/ (memory shards, WAL)
+
 Usage:
     python memory.py write <namespace> <content>
     python memory.py list

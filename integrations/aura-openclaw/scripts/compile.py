@@ -4,6 +4,12 @@
 Compiles a directory of files into an .aura knowledge base.
 Used as an OpenClaw skill action.
 
+Security Manifest:
+    Environment Variables: None
+    External Endpoints: None
+    Local Files Read: User-specified input directory
+    Local Files Written: User-specified .aura output file
+
 Usage:
     python compile.py <input_dir> <output_file>
 """

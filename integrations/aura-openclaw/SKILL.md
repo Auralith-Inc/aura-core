@@ -1,9 +1,13 @@
 ---
-name: aura-memory-compiler
-description: Compile documents into knowledge bases and manage AI agent memory with Aura Core v2
-version: 2.0.0
-author: Auralith Inc.
-homepage: https://github.com/Auralith-Inc/aura-core
+metadata.clawdbot:
+  name: aura-memory-compiler
+  description: Compile documents into knowledge bases and manage persistent AI agent memory with Aura Core
+  version: 2.0.0
+  author: Auralith Inc.
+  homepage: https://github.com/Auralith-Inc/aura-openclaw
+requires:
+  env: []
+files: ["scripts/*"]
 ---
 
 # Aura Memory Compiler
@@ -88,7 +92,7 @@ aura info <aura_file>
 ## Memory Tiers
 
 | Tier | Path | Purpose | Lifecycle |
-|------|------|---------|-----------|
+|------|------|---------|---------  |
 | `/pad` | Working notepad | Scratch space, thinking | Transient, auto-cleared |
 | `/episodic` | Session logs | Conversation history | Auto-archived at session end |
 | `/fact` | Verified facts | User preferences, knowledge | Persistent, immutable |
@@ -100,9 +104,31 @@ Data: CSV, TSV, XLSX, XLS, Parquet, JSON, JSONL, YAML, TOML
 Code: Python, JavaScript, TypeScript, Rust, Go, Java, C/C++, and 20+ more
 Markup: Markdown (.md), reStructuredText, LaTeX
 
+## External Endpoints
+
+| URL | Data Sent |
+|-----|-----------|
+| None | None |
+
+This skill makes **zero network requests**. All processing is local.
+
+## Security & Privacy
+
+- **No data leaves your machine.** All compilation and memory operations run locally.
+- The `.aura` format uses `safetensors` (no pickle) — no arbitrary code execution risk.
+- Memory files are stored in your local OpenClaw data directory.
+- No environment variables or API keys are required.
+- No telemetry, analytics, or usage reporting.
+
+## Model Invocation Note
+
+This skill is autonomously invoked by the agent as part of its normal operation. The agent decides when to compile documents and manage memory based on user requests. You can disable autonomous invocation in your OpenClaw settings.
+
+## Trust Statement
+
+By using this skill, **no data is sent to any external service**. All processing happens on your local machine. Only install this skill if you trust [Auralith Inc.](https://auralith.org) and have reviewed the source code at [GitHub](https://github.com/Auralith-Inc/aura-openclaw).
+
 ## Notes
 
-- All processing happens locally. No data is sent externally.
-- The `.aura` format uses safetensors (no pickle) — safe and secure.
 - Memory uses a Two-Speed WAL: instant writes, background compilation.
-- For emphasis weighting and training features, see [OMNI Platform](https://auralith.org/omni).
+- For emphasis weighting and training features, see [OMNI Platform](https://omni.auralith.org).

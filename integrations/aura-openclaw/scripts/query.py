@@ -4,6 +4,12 @@
 Searches through an .aura knowledge base for relevant documents.
 Also supports searching agent memory via the Memory OS.
 
+Security Manifest:
+    Environment Variables: None
+    External Endpoints: None
+    Local Files Read: User-specified .aura file, ~/.aura/memory/
+    Local Files Written: None
+
 Usage:
     python query.py <aura_file> <search_query>
     python query.py --memory <search_query>

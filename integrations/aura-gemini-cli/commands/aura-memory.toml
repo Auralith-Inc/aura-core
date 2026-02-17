@@ -1,0 +1,20 @@
+description = "Manage Aura's persistent 3-tier agent memory"
+argument-hint = "<action> [args]"
+
+[prompt]
+content = """
+Manage Aura's persistent 3-tier agent memory.
+
+Actions:
+- write <tier> <content> — Write to memory (tier: pad, episodic, or fact)
+- query <search_query> — Search memory
+- list — List all memory entries
+- usage — Show memory tier usage statistics
+
+Use the aura_memory_write, aura_memory_query, or aura_memory_list MCP tools if available.
+
+Memory tiers:
+- pad: Working notes, scratch space, TODO items (transient)
+- episodic: Session logs, conversation summaries (auto-archived)
+- fact: Verified facts, user preferences, project constants (persistent)
+"""

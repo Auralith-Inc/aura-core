@@ -1,0 +1,16 @@
+{
+    "name": "aura",
+    "version": "0.1.0",
+    "description": "Compile any documents into queryable knowledge bases with 3-tier agent memory. 60+ file formats, PII masking, RAG retrieval. All processing runs locally.",
+    "mcpServers": {
+        "aura": {
+            "command": "python",
+            "args": [
+                "-m",
+                "aura.mcp_server"
+            ],
+            "env": {}
+        }
+    },
+    "contextFileName": "GEMINI.md"
+}

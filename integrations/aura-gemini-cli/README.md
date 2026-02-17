@@ -21,7 +21,7 @@ This extension gives your Gemini CLI agent the ability to:
 
 All processing happens **locally on your machine**. No data leaves your device.
 
-## Setup
+## Install
 
 ### 1. Install Aura Core
 
@@ -29,23 +29,17 @@ All processing happens **locally on your machine**. No data leaves your device.
 pip install auralith-aura
 ```
 
-### 2. Configure the MCP Server
+### 2. Install the Extension
 
-Add Aura as an MCP server in your Gemini CLI settings (`~/.gemini/settings.json`):
-
-```json
-{
-  "mcpServers": {
-    "aura": {
-      "command": "python",
-      "args": ["-m", "aura.mcp_server"],
-      "env": {}
-    }
-  }
-}
+```bash
+gemini extensions install https://github.com/Auralith-Inc/aura-gemini-cli
 ```
 
-This exposes the following tools to your Gemini CLI agent automatically:
+That's it. The extension configures Aura's MCP server automatically — all tools are available immediately.
+
+## Available Tools
+
+Once installed, your Gemini CLI agent has access to these tools:
 
 | Tool | Description |
 |------|-------------|
@@ -56,9 +50,15 @@ This exposes the following tools to your Gemini CLI agent automatically:
 | `aura_memory_list` | List all stored memory entries |
 | `aura_info` | Inspect an `.aura` archive (doc count, file types, size) |
 
-## Usage
+## Custom Commands
 
-Once configured, your Gemini CLI agent can use Aura tools naturally through conversation:
+The extension also provides slash commands:
+
+- `/aura-compile <directory>` — Compile documents into a knowledge base
+- `/aura-query <aura_file> <query>` — Search a knowledge base
+- `/aura-memory <action> [args]` — Manage persistent agent memory
+
+## Usage
 
 ### Compile a Knowledge Base
 
@@ -90,10 +90,9 @@ Gemini: [uses aura_memory_query] Based on stored memory: api-staging.example.com
 
 ## How It Works
 
-The Aura MCP server implements the [Model Context Protocol](https://modelcontextprotocol.io/) over stdio, exposing Aura Core's capabilities as standard MCP tools. Gemini CLI discovers and calls these tools automatically.
+The extension packages Aura Core as an [MCP server](https://modelcontextprotocol.io/) that Gemini CLI discovers and calls automatically. Under the hood:
 
 ```python
-# Under the hood, the MCP server uses Aura's Python API:
 from aura.rag import AuraRAGLoader
 
 loader = AuraRAGLoader("knowledge.aura")

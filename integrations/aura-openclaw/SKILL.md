@@ -14,6 +14,8 @@ files: ["scripts/*"]
 
 Persistent memory and instant knowledge retrieval for your OpenClaw agent. Compile 60+ file formats into queryable `.aura` archives and give your agent a 3-tier memory that survives sessions, compaction, and restarts.
 
+> **Memory OS v2.1** (`auralith-aura>=0.2.2`): Enhanced with temporal decay scoring, noise filtering, deduplication, bloom filters, SimHash fuzzy matching, and tiered priority scoring — zero RAM overhead.
+
 ## Setup
 
 ```bash

@@ -10,12 +10,20 @@
 # on GitHub: https://github.com/Auralith-Inc/aura-core
 
 """
-Aura Memory OS — Three-Tier Persistent Memory for AI Agents.
+Aura Memory OS v2.1 — Three-Tier Persistent Memory for AI Agents.
 
 Provides a cognitively-inspired memory architecture:
     /pad       - Working notepad (transient, fast writes)
     /episodic  - Session transcripts (auto-archived)
     /fact      - Verified facts (persistent, survives indefinitely)
+
+v2.1 Performance Enhancements:
+    - Temporal decay scoring (recent memories rank higher)
+    - Noise filtering (blocks meta-questions and denials)
+    - Entry deduplication (prevents redundant writes)
+    - Bloom filters (skip irrelevant shards during query)
+    - SimHash (fuzzy matching without embedding models)
+    - Tiered priority scoring (facts > episodic > pad)
 
 Install from PyPI to use:
     pip install auralith-aura
@@ -32,6 +40,9 @@ try:
         MemoryEntry,
         TwoSpeedWAL,
         ShardInfo,
+        BloomFilter,
+        SimHash,
+        ContentDedup,
     )
 except ImportError:
 
@@ -59,4 +70,13 @@ except ImportError:
         pass
 
     class ShardInfo:
+        pass
+
+    class BloomFilter:
+        pass
+
+    class SimHash:
+        pass
+
+    class ContentDedup:
         pass

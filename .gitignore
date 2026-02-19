@@ -33,3 +33,7 @@ desktop.ini
 
 # Test data
 test_data/
+
+# Private source (not for distribution)
+.private/
+aura/_memory.py

@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://pypi.org/project/auralith-aura/"><img src="https://badge.fury.io/py/auralith-aura.svg" alt="PyPI version"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
+  <a href="#-license"><img src="https://img.shields.io/badge/License-Apache_2.0_+_Proprietary-blue.svg" alt="License"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python 3.8+"></a>
   <a href="https://github.com/Auralith-Inc/aura-core"><img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey" alt="Platform"></a>
 </p>
@@ -96,7 +96,7 @@ memory.end_session()
 
 ## 🧠 Agent Memory
 
-Aura includes a **3-Tier Memory OS** with a **Two-Speed Write-Ahead Log**:
+Aura includes a **3-Tier Memory OS** — a persistent memory architecture for AI agents:
 
 | Tier | Purpose | Lifecycle |
 |------|---------|-----------|
@@ -104,9 +104,7 @@ Aura includes a **3-Tier Memory OS** with a **Two-Speed Write-Ahead Log**:
 | `/episodic` | Session transcripts, conversation history | Auto-archived |
 | `/fact` | Verified facts, user preferences | Persistent |
 
-**Two-Speed WAL:**
-- **Speed 1** (~0.001s): Instant JSONL append — agents are never blocked
-- **Speed 2** (background): Compiles to durable `.aura` shards at session end
+The Memory OS is **included free** when you install from PyPI (`pip install auralith-aura`).
 
 ```bash
 # CLI memory management
@@ -312,7 +310,8 @@ Aura handles local compilation. For enterprise-scale training pipelines, model f
 
 ## 📜 License
 
-[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- **Compiler, RAG, Loader, Binary Format**: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- **Memory OS**: Proprietary — free to use, included in PyPI package. See [LICENSE-MEMORY](LICENSE-MEMORY).
 
 ---
 

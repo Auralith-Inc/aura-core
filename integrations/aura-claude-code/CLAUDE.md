@@ -52,5 +52,5 @@ results = memory.query("user preferences")
 - All processing is local. No network calls.
 - Uses safetensors (not pickle) — safe to load untrusted files.
 - Cross-platform: macOS, Windows, Linux.
-- Apache-2.0 licensed.
+- Compiler and RAG: Apache-2.0. Memory OS: proprietary, free to use.
 - Documentation: https://github.com/Auralith-Inc/aura-core

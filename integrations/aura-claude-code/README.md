@@ -59,7 +59,7 @@ Claude: Based on auth_module.py and architecture.md:
 - All processing happens **locally**. No data leaves your machine.
 - Uses `safetensors` (no pickle) — safe and secure.
 - Runs on your local hardware. Fully offline after install.
-- Apache-2.0 licensed.
+- Compiler and RAG: Apache-2.0. Memory OS: proprietary, free to use.
 
 ## Scale Up with OMNI
 

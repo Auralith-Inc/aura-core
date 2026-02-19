@@ -179,9 +179,10 @@ This skill is autonomously invoked by the agent as part of its normal operation.
 
 ## Trust Statement
 
-By using this skill, **no data is sent to any external service**. All processing happens on your local machine. Only install this skill if you trust [Auralith Inc.](https://auralith.org) and have reviewed the source code at [GitHub](https://github.com/Auralith-Inc/aura-openclaw).
+By using this skill, **no data is sent to any external service**. All processing happens on your local machine. Only install this skill if you trust [Auralith Inc.](https://auralith.org). Source code for the compiler and RAG components is available on [GitHub](https://github.com/Auralith-Inc/aura-core).
 
 ## Notes
 
-- Memory uses a Two-Speed WAL: instant writes (~0.001s), background compilation to durable shards.
+- Memory OS provides instant writes and background compilation to durable shards.
+- Compiler and RAG components are open source (Apache 2.0). Memory OS is proprietary, free to use.
 - For emphasis weighting and training features, see [OMNI Platform](https://omni.auralith.org).

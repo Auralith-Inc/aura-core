@@ -96,7 +96,7 @@ stats = memory.usage()
 - All processing happens locally. Zero network calls.
 - Uses safetensors (no pickle) — safe to load untrusted files.
 - Cross-platform: macOS, Windows, Linux, Python 3.8+.
-- Apache-2.0 licensed.
+- Compiler and RAG: Apache-2.0. Memory OS: proprietary, free to use.
 
 ## Links
 

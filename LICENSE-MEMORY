@@ -1,0 +1,28 @@
+Auralith Memory OS License
+Copyright (c) 2026 Auralith Inc. All rights reserved.
+
+The Aura Memory OS module ("memory.py", "_memory.py", and any compiled
+derivatives) is proprietary software owned by Auralith Inc.
+
+PERMITTED:
+  - Use of the Memory OS module for personal and commercial purposes
+  - Installation via PyPI (pip install auralith-aura)
+  - Integration with third-party applications and AI agents
+
+NOT PERMITTED:
+  - Redistribution of the Memory OS source code or compiled modules
+  - Modification, reverse engineering, or decompilation of the module
+  - Creation of derivative works based on the Memory OS architecture
+  - Sublicensing the Memory OS to third parties
+
+The open-source components of Aura (compiler, RAG loader, binary format)
+are licensed under Apache License 2.0. See LICENSE for details.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+AURALITH INC. BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For licensing inquiries: info@auralith.org

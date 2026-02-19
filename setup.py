@@ -1,4 +1,4 @@
-"""Aura-Core: The Universal Context Compiler for AI Agent Memory"""
+"""Aura-Core: The Universal Context Compiler for AI Agents"""
 
 from setuptools import setup, find_packages
 
@@ -7,14 +7,17 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="auralith-aura",
-    version="0.1.0",
-    description="The Universal Context Compiler for AI Agent Memory",
+    version="0.2.0",
+    description="The Universal Context Compiler for AI Agents",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Auralith Inc.",
     author_email="info@auralith.org",
     url="https://github.com/Auralith-Inc/aura-core",
     packages=find_packages(),
+    package_data={
+        "aura": ["_memory.py", "_memory.pyc"],
+    },
     install_requires=[
         "numpy>=1.21.0",
         "msgpack>=1.0.0",
@@ -44,6 +47,8 @@ setup(
             "pytest>=7.0.0",
             "black>=22.0.0",
             "isort>=5.10.0",
+            "build>=0.10.0",
+            "twine>=4.0.0",
         ],
     },
     entry_points={
@@ -61,10 +66,11 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
-        "License :: OSI Approved :: Apache Software License",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     python_requires=">=3.8",
+    license="Apache-2.0 AND Proprietary",
+    license_files=["LICENSE", "LICENSE-MEMORY"],
     keywords="ai, agent-memory, rag, context-compiler, openclaw, claude-code, codex, gemini-cli, llm, knowledge-base",
 )

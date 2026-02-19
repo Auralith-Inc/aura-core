@@ -113,6 +113,21 @@ aura memory usage      # Storage usage by tier
 aura memory prune --before 2026-01-01  # Clean up old memories
 ```
 
+### v2.1 Performance Enhancements
+
+Memory OS v2.1 (`auralith-aura>=0.2.2`) adds six performance enhancements designed for **zero RAM overhead** — no embedding models, no vector databases, no background services:
+
+| Enhancement | What It Does |
+|-------------|-------------|
+| **Temporal Decay** | Recent memories rank higher (14-day half-life recency boost) |
+| **Noise Filtering** | Blocks meta-questions and agent denials from storage and search |
+| **Entry Dedup** | SHA-256 + SimHash near-duplicate detection prevents redundant writes |
+| **Bloom Filters** | ~1KB per shard — skips irrelevant shards entirely during query |
+| **SimHash** | 64-bit locality-sensitive hashing for fuzzy text matching without embeddings |
+| **Tiered Scoring** | Facts rank above episodic, episodic above pad in search results |
+
+Upgrade: `pip install --upgrade auralith-aura`
+
 ---
 
 ## 🤖 Agent Integrations

@@ -25,12 +25,12 @@ def build():
     """Build wheel and sdist with the real Memory OS included."""
 
     if not PRIVATE_SRC.exists():
-        print(f"❌ Private source not found: {PRIVATE_SRC}")
+        print("[!] Private source not found: {}".format(PRIVATE_SRC))
         print("   Place the real memory.py in .private/memory.py")
         sys.exit(1)
 
     # Copy real source into package as _memory.py
-    print("📦 Copying Memory OS source...")
+    print("[*] Copying Memory OS source...")
     shutil.copy2(PRIVATE_SRC, TARGET)
 
     try:
@@ -41,31 +41,31 @@ def build():
             shutil.rmtree(d)
 
         # Build
-        print("🔨 Building wheel and sdist...")
+        print("[*] Building wheel and sdist...")
         subprocess.run(
             [sys.executable, "-m", "build"],
             cwd=str(ROOT),
             check=True,
         )
-        print("✅ Build complete. Artifacts in dist/")
+        print("[OK] Build complete. Artifacts in dist/")
 
     finally:
         # Always clean up — never leave real source exposed
         if TARGET.exists():
             TARGET.unlink()
-            print("🧹 Cleaned up _memory.py")
+            print("[*] Cleaned up _memory.py")
 
 
 def upload():
     """Upload to PyPI using twine."""
     build()
-    print("📤 Uploading to PyPI...")
+    print("[*] Uploading to PyPI...")
     subprocess.run(
         [sys.executable, "-m", "twine", "upload", "dist/*"],
         cwd=str(ROOT),
         check=True,
     )
-    print("✅ Uploaded to PyPI")
+    print("[OK] Uploaded to PyPI")
 
 
 if __name__ == "__main__":

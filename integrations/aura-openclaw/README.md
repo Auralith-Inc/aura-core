@@ -39,6 +39,8 @@ Aura organizes agent memory into three purpose-built tiers:
 | **`/episodic`** | Session transcripts, conversation history, decisions made | Auto-archived — retained for reference |
 | **`/fact`** | Verified facts, user preferences, learned rules | Persistent — survives indefinitely |
 
+> **Memory OS v2.1** (`auralith-aura>=0.2.2`): Now includes temporal decay scoring, noise filtering, entry deduplication, bloom filters for fast shard skipping, SimHash fuzzy matching, and tiered priority scoring — all with **zero RAM overhead**. No embedding models. No vector databases. Designed to run on anything from ARM SBCs to cloud servers.
+
 ### How It Works
 
 1. **Your agent writes to memory instantly** (~0.001s) via a write-ahead log — it's never blocked
